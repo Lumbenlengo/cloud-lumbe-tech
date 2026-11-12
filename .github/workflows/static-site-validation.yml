@@ -1,0 +1,70 @@
+name: Static site validation
+
+on:
+  push:
+    branches:
+      - feat/aws-cloud-services-site
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check JavaScript syntax
+        run: node --check site/assets/site.js
+      - name: Validate static site structure
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+
+          root = Path("site")
+          langs = ("en", "pt", "fr", "es")
+          services = (
+              "aws-cost-optimization",
+              "aws-security-posture",
+              "cloud-architecture-migration",
+              "aws-backup-disaster-recovery",
+              "aws-monitoring-reliability",
+              "aws-devops-cicd-containers",
+          )
+          required = [
+              root / "index.html",
+              root / "assets/site.js",
+              root / "assets/site.css",
+              root / "assets/cloud-art.svg",
+              root / "robots.txt",
+              root / "sitemap.xml",
+          ]
+          required += [root / lang / "index.html" for lang in langs]
+          required += [root / lang / "services" / slug / "index.html"
+                       for lang in langs for slug in services]
+          missing = [str(p) for p in required if not p.is_file()]
+          if missing:
+              raise SystemExit("Missing website files: " + ", ".join(missing))
+
+          script = (root / "assets/site.js").read_text(encoding="utf-8")
+          for slug in services:
+              if slug not in script:
+                  raise SystemExit("Service missing from content: " + slug)
+
+          ET.parse(root / "sitemap.xml")
+          print(f"Validated {len(langs)} languages, {len(services)} services and {len(langs)*len(services)} service pages.")
+          PY
+      - name: Verify hosting configuration
+        run: python3 -c "import json; c=json.load(open('firebase.json')); h=c['hosting']; assert h['public']=='site' and h['target']=='cloud-lumbe-tech'; print('Firebase target and public directory are correct.')"
