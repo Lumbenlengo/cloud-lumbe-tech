@@ -1,0 +1,46 @@
+.detail-hero { overflow: hidden; padding: 34px 0 65px; border-bottom: 1px solid #dce8f0; background: linear-gradient(118deg, #f5fafe, #eaf4fa); }
+.breadcrumb { display: inline-flex; margin-bottom: 44px; color: #5e8098; font-size: 11px; font-weight: 700; }
+.breadcrumb:hover { color: var(--blue); }
+.detail-hero-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 65px; align-items: center; }
+.detail-kicker { margin: 0 0 12px; color: #3f86b4; font-size: 10px; font-weight: 850; letter-spacing: 1.4px; }
+.detail-hero h1 { max-width: 650px; margin-bottom: 18px; font-size: clamp(40px, 5vw, 58px); }
+.detail-intro { max-width: 630px; margin-bottom: 26px; color: #5a7388; font-size: 16px; line-height: 1.8; }
+.detail-visual { min-height: 300px; display: grid; place-items: center; position: relative; overflow: hidden; border: 1px solid #c8deed; border-radius: 21px; background: radial-gradient(circle, #fff 0%, #e3f1fa 72%); box-shadow: 0 24px 55px rgba(42, 94, 130, .09); }
+.detail-visual-number { position: absolute; top: 12px; right: 19px; color: rgba(63, 126, 169, .13); font-size: 88px; line-height: 1; font-weight: 850; }
+.detail-orbit { position: absolute; border: 1px solid rgba(48, 131, 185, .22); border-radius: 50%; }
+.orbit-one { width: 235px; height: 235px; }
+.orbit-two { width: 285px; height: 180px; transform: rotate(35deg); border-style: dashed; }
+.detail-icon { position: relative; z-index: 1; display: grid; place-items: center; width: 117px; height: 117px; border: 1px solid #bbd8eb; border-radius: 30px; background: rgba(255,255,255,.88); color: #2476b1; box-shadow: 0 12px 30px rgba(39, 106, 153, .13); font-size: 48px; font-weight: 780; }
+.detail-visual-caption { position: absolute; bottom: 20px; color: #7f9bae; font-size: 8px; font-weight: 850; letter-spacing: 2px; }
+.detail-story { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; }
+.story-block { padding-top: 4px; }
+.story-block .eyebrow { font-size: 9px; }
+.story-block h2 { max-width: 480px; margin: 0 0 16px; color: var(--ink); font-size: 27px; line-height: 1.23; letter-spacing: -.9px; }
+.story-block p:last-child { margin: 0; color: #687f92; font-size: 13.5px; line-height: 1.85; }
+.story-solution { padding-left: 34px; border-left: 1px solid var(--line); }
+.detail-benefits-section { background: #edf4f8; }
+.detail-benefits-section .section { padding-block: 72px; }
+.detail-benefits-section .section-heading { margin-bottom: 26px; }
+.detail-benefits-section .section-heading h2 { max-width: 750px; }
+.benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.benefit-card { min-height: 140px; padding: 23px; border: 1px solid #d7e5ee; border-radius: 13px; background: #fff; }
+.benefit-card span { color: #3884b5; font-size: 10px; font-weight: 850; }
+.benefit-card p { margin: 22px 0 0; color: #3c566c; font-size: 14px; line-height: 1.65; font-weight: 670; }
+.detail-included .section-heading { margin-bottom: 25px; }
+.included-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+.included-item { display: flex; gap: 12px; padding: 19px; border: 1px solid #dce7ef; border-radius: 12px; background: #fff; }
+.included-item > span { display: grid; place-items: center; flex: 0 0 22px; width: 22px; height: 22px; border-radius: 50%; background: #e1f5ed; color: #21845e; font-size: 11px; font-weight: 850; }
+.included-item p { margin: 0; color: #5e7488; font-size: 12px; line-height: 1.7; }
+.process-detail-section { background: #f0f6fa; border-block: 1px solid #e1eaf0; }
+.process-detail-section .section { padding-block: 72px; }
+.detail-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.detail-step { min-height: 153px; padding: 21px; border: 1px solid #dce7ef; border-radius: 12px; background: #fff; }
+.detail-step span { color: #337fb2; font-size: 10px; font-weight: 850; }
+.detail-step p { margin: 22px 0 0; color: #536d82; font-size: 12px; line-height: 1.7; }
+.detail-faq { padding-block: 72px; }
+.detail-faq .faq-list { max-width: 900px; }
+
+.not-found { min-height: 70vh; display: grid; place-items: center; padding: 65px 24px; text-align: center; }
+.not-found h1 { margin-bottom: 12px; font-size: 44px; }
+.not-found p { max-width: 500px; color: var(--muted); }
+
